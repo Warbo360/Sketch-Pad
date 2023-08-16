@@ -1,29 +1,34 @@
 // Need a function that takes button input of size dimensions and outputs a .createElements() loop and iterates n times n being the axb dimenstions of the sketch pad, each 
 // draw box will be its own div, so flexbox with flex-wrap needed when creating the divs with JS manip 
 
-let sizeInput = prompt('input canvas size pls'); // outputs string for the variable
-
 function createCanvas(sizeInput) {
     let canvasContainer = document.querySelector('.rightSideSketchZone');
-    console.log(typeof sizeInput);
     for (let i = 0; i < (sizeInput * sizeInput); i++) {
         let individualBox = document.createElement('div');
-        individualBox.textContent = 'x';
-        individualBox.style.width = toString(500/sizeInput) + 'px';
-        console.log(individualBox.style.width = 500/sizeInput + 'px');
-        individualBox.style.height = toString(500/sizeInput) + 'px';
-        console.log(individualBox.style.height = 500/sizeInput + 'px');
+        individualBox.setAttribute('class','singleBox');
+        individualBox.style.width = 600/sizeInput + 'px';
+        individualBox.style.height = 600/sizeInput + 'px';
 
         canvasContainer.appendChild(individualBox);
     }
 }
 
-// let overallApp = document.querySelector('.overallApp');
+createCanvas(prompt("Input width x height number up to 100 please")); // Calling the above function with the input being a prompt to generate the sketch grid
 
-// for (let i = 1; i <= 9; i++) {
-// 	let p = document.createElement('p');
-// 	p.textContent = '!';
-	
-// 	overallApp.appendChild(p);
-// }
+let singleBox = document.querySelectorAll('.singleBox');
 
+
+function draw(e) {
+    e.target.style.backgroundColor = 'black';
+}
+
+function erase(e) {
+    e.target.style.backgroundColor = 'white';
+}
+
+
+for (i = 0; i < singleBox.length; i++ ) {
+    singleBox[i].addEventListener('click', function(e) {
+        draw(e);
+    });
+}

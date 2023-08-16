@@ -1,6 +1,12 @@
 * {
     margin: 0px;
     padding: 0px;
+    max-height: 100vh;
+}
+
+button {
+    width: 100px;
+    height: 100px;
 }
 
 .rightSideSketchZone {
@@ -8,8 +14,13 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    height: 500px;
-    width: 500px;
+    height: 600px;
+    width: 600px;
+}
+
+.rightSideSketchZone div {
+    border: 1px solid black;
+    box-sizing: border-box;
 }
 
 
