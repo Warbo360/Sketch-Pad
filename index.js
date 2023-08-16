@@ -33,6 +33,14 @@ function erase(e) {
     e.target.style.backgroundColor = 'white';
 };
 
+function getRandomInteger(max) {
+    return Math.floor(Math.random()*max);
+};
+
+function rgb(e) {
+    e.target.style.backgroundColor = 'rgb' + '(' + getRandomInteger(255) + ',' + getRandomInteger(255) + ',' + getRandomInteger(255) + ')';
+};
+
 
 for (i = 0; i < singleBox.length; i++ ) {
     singleBox[i].addEventListener('click', function(e) {
@@ -40,6 +48,10 @@ for (i = 0; i < singleBox.length; i++ ) {
             draw(e);
         } else if (drawMode === 'erase') {
             erase(e);
+        } else if (drawMode === 'rgb') {
+            rgb(e);
+        } else {
+            alert('Please select a draw option')
         };
     });
 };
