@@ -22,6 +22,11 @@ let drawMode;
 sketchSize.forEach(((element) => element.addEventListener('click', function(){
     console.log(element);
     drawMode = element.innerText.toLowerCase();
+    if (drawMode === 'clear') {
+        for (i = 0; i < singleBox.length; i++ ) {
+            singleBox[i].style.backgroundColor = 'white';
+        };
+    };
 })));
 
 
@@ -41,7 +46,6 @@ function rgb(e) {
     e.target.style.backgroundColor = 'rgb' + '(' + getRandomInteger(255) + ',' + getRandomInteger(255) + ',' + getRandomInteger(255) + ')';
 };
 
-
 for (i = 0; i < singleBox.length; i++ ) {
     singleBox[i].addEventListener('click', function(e) {
         if (drawMode === 'draw') {
@@ -55,3 +59,5 @@ for (i = 0; i < singleBox.length; i++ ) {
         };
     });
 };
+
+
