@@ -16,19 +16,30 @@ function createCanvas(sizeInput) {
 createCanvas(prompt("Input width x height number up to 100 please")); // Calling the above function with the input being a prompt to generate the sketch grid
 
 let singleBox = document.querySelectorAll('.singleBox');
+let sketchSize = document.querySelectorAll('.sketchSize');
+let drawMode;
+
+sketchSize.forEach(((element) => element.addEventListener('click', function(){
+    console.log(element);
+    drawMode = element.innerText.toLowerCase();
+})));
 
 
 function draw(e) {
     e.target.style.backgroundColor = 'black';
-}
+};
 
 function erase(e) {
     e.target.style.backgroundColor = 'white';
-}
+};
 
 
 for (i = 0; i < singleBox.length; i++ ) {
     singleBox[i].addEventListener('click', function(e) {
-        draw(e);
+        if (drawMode === 'draw') {
+            draw(e);
+        } else if (drawMode === 'erase') {
+            erase(e);
+        };
     });
-}
+};
