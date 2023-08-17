@@ -27,8 +27,8 @@ gridLinesButton.addEventListener('click', function() {
         removeGridLines();
         gridLinesMode = false;
     } else {
-        gridLinesMode = true;
         drawGridLines();
+        gridLinesMode = true;
     };
 });
 
@@ -63,15 +63,13 @@ function rgb(e) {
 
 function drawGridLines() {
     for (i = 0; i < singleBox.length; i++ ) {
-        singleBox[i].style.border = 1 + 'px' + 'solid black;';
-        console.log(singleBox[i].style.border = 1 + 'px');
+        singleBox[i].style.border = '1px solid black';
     };
 };
 
 function removeGridLines() {
     for (i = 0; i < singleBox.length; i++ ) {
         singleBox[i].style.border = 'none';
-        console.log(singleBox[i].style.border = 'none');
     };
 };
 
