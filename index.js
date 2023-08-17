@@ -17,7 +17,20 @@ createCanvas(prompt("Input width x height number up to 100 please")); // Calling
 
 let singleBox = document.querySelectorAll('.singleBox'); // selecting the divs in the drawing area
 let sketchSize = document.querySelectorAll('.sketchSize'); // selecting the div that will eventaully hold the various draw modes
+let gridLinesButton = document.querySelector('#gridlines'); // selecting the gridlines button
 let drawMode; // variable that is used to set the drawmode, and if clear is selected loops over each div coloring each white
+let gridLinesMode = true; // variable to flip the gridlines on the canvas on and off
+
+// event listener for the gridlines button to either draw or remove the gridlines
+gridLinesButton.addEventListener('click', function() {
+    if (gridLinesMode === true) {
+        removeGridLines();
+        gridLinesMode = false;
+    } else {
+        gridLinesMode = true;
+        drawGridLines();
+    };
+});
 
 
 // Event listener to set draw modes based on buttons selctions and a for loop if the clear option is selected colors all the canvas divs white
@@ -48,6 +61,20 @@ function rgb(e) {
     e.target.style.backgroundColor = 'rgb' + '(' + getRandomInteger(255) + ',' + getRandomInteger(255) + ',' + getRandomInteger(255) + ')';
 };
 
+function drawGridLines() {
+    for (i = 0; i < singleBox.length; i++ ) {
+        singleBox[i].style.border = 1 + 'px' + 'solid black;';
+        console.log(singleBox[i].style.border = 1 + 'px');
+    };
+};
+
+function removeGridLines() {
+    for (i = 0; i < singleBox.length; i++ ) {
+        singleBox[i].style.border = 'none';
+        console.log(singleBox[i].style.border = 'none');
+    };
+};
+
 // variable and eventlistener to track if the mouse is held down and sets the variable to true of false to be used in the for loop below to actually draw in the canvas
 let isMouseDown = false;
 
@@ -67,6 +94,21 @@ for (i = 0; i < singleBox.length; i++ ) {
         } else if (drawMode === 'erase' && isMouseDown === true) {
             erase(e);
         } else if (drawMode === 'rgb' && isMouseDown === true) {
+            rgb(e);
+        } else {
+            return;
+        };
+    });
+};
+
+// Same as the above loop but changed the event to just a click, and removed the '&& isMouseDown conditional that way clicks in the div fill that individual div as well
+for (i = 0; i < singleBox.length; i++ ) {
+    singleBox[i].addEventListener('click', function(e) {
+        if (drawMode === 'draw') {
+            draw(e);
+        } else if (drawMode === 'erase') {
+            erase(e);
+        } else if (drawMode === 'rgb') {
             rgb(e);
         } else {
             return;
