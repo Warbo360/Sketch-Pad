@@ -35,7 +35,6 @@ gridLinesButton.addEventListener('click', function() {
 
 // Event listener to set draw modes based on buttons selctions and a for loop if the clear option is selected colors all the canvas divs white
 sketchSize.forEach(((element) => element.addEventListener('click', function(){
-    console.log(element);
     drawMode = element.innerText.toLowerCase();
     if (drawMode === 'clear') {
         for (i = 0; i < singleBox.length; i++ ) {
@@ -61,6 +60,7 @@ function rgb(e) {
     e.target.style.backgroundColor = 'rgb' + '(' + getRandomInteger(255) + ',' + getRandomInteger(255) + ',' + getRandomInteger(255) + ')';
 };
 
+// defining the function to draw and remove the gridlines of the drawing canvas
 function drawGridLines() {
     for (i = 0; i < singleBox.length; i++ ) {
         singleBox[i].style.border = '1px solid black';
