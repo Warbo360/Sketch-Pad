@@ -2,11 +2,43 @@
     margin: 0px;
     padding: 0px;
     max-height: 100vh;
+    text-align: center;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    padding: 20px;
+}
+
+div {
+    border: 1px solid red;
 }
 
 button {
     width: 100px;
-    height: 100px;
+    height: 50px;
+}
+
+.header, 
+.footer {
+    height: 50px;
+    width: 100%;
+}
+
+.overallApp {
+    display: flex;
+    justify-content: space-between;
+    height: 85vh;
+    width: 100%;
+
+}
+
+.leftSideUserInputs {
+    width: 200px;
 }
 
 .rightSideSketchZone {
@@ -16,6 +48,9 @@ button {
     align-items: center;
     height: 600px;
     width: 600px;
+    order: 1;
+    align-self: center;
+    margin-right: 15%;
 }
 
 .rightSideSketchZone div {
@@ -23,4 +58,21 @@ button {
     box-sizing: border-box;
 }
 
+.leftSideUserInputs div {
+    height: 50%;
+    width: 100%;
+}
 
+.downSideSketchSize {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background-color: #6666ff;
+}
+
+.downSideSketchSize p {
+    font-weight: bold;
+    color: antiquewhite;
+}
