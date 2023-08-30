@@ -14,7 +14,7 @@ function createCanvas(sizeInput) {
         canvasContainer.appendChild(individualBox);
     };
     singleBox = document.querySelectorAll('.singleBox'); // selecting the divs in the drawing area
-    // if isMouseDown = true, then the for loop fills in a div that has the mouse over it allows to press and hold draw functionality and stops if the button is not held
+    // if isMouseDown = true, then the for loop fills in a div that has the mouse over it allows to press and hold draw functionality and stops if the button is not held also made it so after a new canvas is made each time it actively sets the background color of each one to white so shading draw mode works properly
     for (i = 0; i < singleBox.length; i++ ) {
         singleBox[i].style.backgroundColor = 'white';
     };
@@ -75,7 +75,7 @@ gridLinesButton.addEventListener('click', function() {
 });
 
 
-// Event listener to set draw modes based on buttons selctions and a for loop if the clear option is selected colors all the canvas divs white
+// Event listener to set draw modes based on buttons selctions and a for loop if the clear option is selected colors all the canvas divs white, now also shows which draw mode is active after is button is pressed as well, essentially resets all buttons then colors the one picked
 sketchSize.forEach(((element) => element.addEventListener('click', function(e) {
     drawMode = element.innerText.toLowerCase();
     if (drawMode === 'clear') {
