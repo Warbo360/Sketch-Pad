@@ -1,8 +1,14 @@
 * {
     margin: 0px;
-    padding: 0px;
     max-height: 100vh;
     text-align: center;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+    min-height: 100%;
 }
 
 body {
@@ -10,69 +16,91 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 90%;
-    padding: 20px;
-}
-
-div {
-    border: 1px solid red;
+    width: 100%;
+    background-color: #e6e6e6;
 }
 
 button {
     width: 100px;
-    height: 50px;
+    height: 40px;
+    box-shadow: 5px 5px 5px;
+    font-size: 15px;
+    font-weight: bold;
+    border-width: 2px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: black;
+    color: #e6e6e6;
 }
 
 .header, 
 .footer {
-    height: 50px;
     width: 100%;
+    padding: 10px
 }
 
 .overallApp {
     display: flex;
-    justify-content: space-between;
-    height: 85vh;
+    justify-content: center;
+    align-items: stretch;
+    height: 95vh;
     width: 100%;
-
 }
 
 .leftSideUserInputs {
-    width: 200px;
+    width: 400px;
+    height: 100%;
 }
 
 .rightSideSketchZone {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
     height: 600px;
     width: 600px;
     order: 1;
+    border: 5px solid black;
+    box-sizing: content-box;
     align-self: center;
-    margin-right: 15%;
+    margin-right: 395px;
+    flex: none;
 }
 
 .rightSideSketchZone div {
     border: 1px solid black;
     box-sizing: border-box;
+    box-shadow: 10px 10px;
 }
 
 .leftSideUserInputs div {
-    height: 50%;
+    height: 100%;
     width: 100%;
 }
 
-.downSideSketchSize {
+.upSideDrawMode {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 5px;
-    background-color: #6666ff;
+    gap: 10px;
 }
 
-.downSideSketchSize p {
+.upSideDrawMode p {
     font-weight: bold;
-    color: antiquewhite;
+}
+
+.downSideSketchSize {
+    background-color: gray;
+}
+
+.header {
+    font-size: 40px;
+}
+
+.footer {
+    background-color: black;
+    color: #e6e6e6;
+    text-emphasis: bold;
+    font-size: large;
 }
